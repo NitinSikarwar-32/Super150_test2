@@ -19,6 +19,9 @@ h1{
     padding-left: 220px;
     color: black;
 }
+h1 u{
+    color: black;
+}
 .search{
     padding-top: 30px;
     padding-bottom: 10px;
