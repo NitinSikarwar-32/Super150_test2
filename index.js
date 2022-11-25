@@ -1,34 +1,3 @@
-let images = null;
-function data(){
-    const request = new Request('https://api.tvmaze.com/search/shows?q='+search);
-    fetch(request)
-    .then((response) => {
-      if (response.status === 200) {
-        images = response;
-        return response.json();
-        
-      } else {
-        throw new Error('Something went wrong on API server!');
-      }
-    })
-    .then((response) => {
-      //console.debug(response);
-        
-
-        for(let i=0; i<response.length; i++){
-            let url = (response[i].show.image.medium);
-
-            let cont = document.getElementById("gif");
-            let im = document.createElement("img");
-            im.setAttribute("src",url);
-            cont.appendChild(im);
-        }
-        
-      // …
-    }).catch((error) => {
-      console.error(error);
-    });
-}
 
 let btn = document.getElementById("search");
 let search = "";
@@ -79,3 +48,34 @@ yellow.addEventListener("click", function(){
  yellow.style.backgroundColor = "black";
   pink.style.backgroundColor = "white";
 });
+let images = null;
+function data(){
+    const request = new Request('https://api.tvmaze.com/search/shows?q='+search);
+    fetch(request)
+    .then((response) => {
+      if (response.status === 200) {
+        images = response;
+        return response.json();
+        
+      } else {
+        throw new Error('Something went wrong on API server!');
+      }
+    })
+    .then((response) => {
+      //console.debug(response);
+        
+
+        for(let i=0; i<response.length; i++){
+            let url = (response[i].show.image.medium);
+
+            let cont = document.getElementById("gif");
+            let im = document.createElement("img");
+            im.setAttribute("src",url);
+            cont.appendChild(im);
+        }
+        
+      // …
+    }).catch((error) => {
+      console.error(error);
+    });
+}
